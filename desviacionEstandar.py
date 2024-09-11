@@ -2,16 +2,15 @@ import math
 import csv
 
 #Iniciamos la obtencion de datos de un archivo en formato csv
-ruta_archivo = "C:\\Users\\iroba\\Downloads\\diabetes.csv"
+ruta_archivo = "C:\\Users\\iroba\\OneDrive\\Documentos\\ejercicio1_algoritmosClasificacion.csv"
 
 # Abremos el archivo CSV y cargamos los datos en una lista de diccionarios
-with open(ruta_archivo, mode='r') as archivo:
+with open(ruta_archivo, 'r', encoding='utf-8', errors='ignore') as archivo:
     contenido = csv.DictReader(archivo)
     dataset = [fila for fila in contenido]   # >>> Guardamos los datos en una lista de listas iterando fila por fila
 
-
 #Guardamos los datos de la columna que nos interesa analizar (en este caso: col 08 >>> Edad)
-datos_originales = [float(fila["Age"]) for fila in dataset]
+datos_originales = [float(fila['PesoGramos']) for fila in dataset]
 
 #Obtenemos el promedio de los datos
 promedio = sum(datos_originales) / len(datos_originales)
@@ -44,5 +43,5 @@ proporcion_real = k_desviaciones(datos_originales, k, promedio, desv_estandar)
 print(f"La proporción real de datos dentro de {k:.0f} desviaciones estándar de la media es: {proporcion_real:.2f}%")
 
 probabilidad_teorica = teoric_prob(k)
-print(f"Según el Teorema de Chebyshev, al menos el {(probabilidad_teorica):.2f}% de los datos deberían estar dentro de {k:.0f} desviaciones estándar.")
+print(f"Según el Teorema de Chebyshev, al menos el {probabilidad_teorica:.2f}% de los datos deberían estar dentro de {k:.0f} desviaciones estándar.")
 
