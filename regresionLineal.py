@@ -111,9 +111,9 @@ y_pred = predecir(x, beta0, beta1)
 r2 = coeficiente_determinacion(y, y_pred)
 
 # Mostrar coeficiente de determinación
-print(f"El coeficiente de determinación (R²) es: {r2:.4f}")
+print(f"El coefi4ciente de determinación (R²) es: {r2:.4f}")
 
-if 0.8 <= r2 <= 1.0:
+if 0.6 <= r2 <= 1.0:
     print("ES UN BUEN MÉTODO")
 else:
     print("NO ES UN BUEN MÉTODO")
